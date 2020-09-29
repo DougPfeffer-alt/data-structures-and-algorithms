@@ -36,10 +36,15 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,6 +67,13 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let list = [];
+  availableItems.forEach(item => {
+    if (item.available === true) {
+      list.push(item.name);
+    }
+  });
+  return list;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,6 +92,19 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let output = [];
+  arr.forEach(iteration => {
+    if (iteration % 3 === 0 && iteration % 5 === 0) {
+      output.push('Fizz Buzz');
+    } else if (iteration % 5 === 0) {
+      output.push('Buzz');
+    } else if (iteration % 3 === 0) {
+      output.push('Fizz');
+    } else {
+      output.push(iteration);
+    }
+  });
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
